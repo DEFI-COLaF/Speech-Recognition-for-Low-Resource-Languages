@@ -32,7 +32,7 @@ LEARNING_RATE = 1e-4            # optimizer learning rate
 ```
 
 Whisper supports a fixed set of languages. You can find the full list of supported languages [here](https://platform.openai.com/docs/guides/speech-to-text/supported-languages/#supported-languages).
-If your language is not included, select the closest supported one. Otherwise, you may omit the `LANGUAGE` parameter to enable automatic detection.
+If your language is not included, select the closest supported one (e.g., you can use Swahili for Shimaore and German for Alsatian). Otherwise, you may omit the `LANGUAGE` parameter to enable automatic detection.
 
 Adjust `BATCH_SIZE` and `ACCUMULATE_GRAD_BATCHES` depending on your available GPU memory. Choose a `BATCH_SIZE` that balances memory usage with training stability. If you encounter memory limitations, reduce the batch size and use `ACCUMULATE_GRAD_BATCHES` to accumulate gradients over multiple steps, allowing you to simulate a larger effective batch size while avoiding memory overflow.
 
