@@ -147,7 +147,7 @@ def load_and_preprocess_data(path,language=None, use_huggingface=False,token=Non
 
                         yield {
                             "audio": audio_file_path,
-                            "Text": transcription
+                            "sentence": transcription
                         }
 
         def prepare_dataset(batch, feature_extractor, tokenizer):
@@ -159,7 +159,7 @@ def load_and_preprocess_data(path,language=None, use_huggingface=False,token=Non
                 input_features.append(features.input_features[0])
 
             batch["input_features"] = input_features
-            batch["labels"] = tokenizer(batch["Text"]).input_ids
+            batch["labels"] = tokenizer(batch["sentence"]).input_ids
             return batch
 
         # Check if the provided path is a valid directory
@@ -341,7 +341,7 @@ def generate_predictions(dataset, model):
     references = []
     for sample in tqdm(dataset, desc="Processing samples", unit="sample", dynamic_ncols=True):
         input_speech = sample["audio"]
-        reference_text = sample["Text"]
+        reference_text = sample["sentence"]
 
         # Preprocess audio
         input_features = model.processor(input_speech["array"], sampling_rate=input_speech["sampling_rate"], return_tensors="pt").input_features.to(device)
