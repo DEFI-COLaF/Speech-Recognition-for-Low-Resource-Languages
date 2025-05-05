@@ -44,15 +44,16 @@ You can load your dataset using one of the following two methods:
 
 #### 📚 Option 1: Hugging Face Dataset (Common Voice)
 You can directly use [Common Voice datasets](https://huggingface.co/datasets/mozilla-foundation) available on Hugging Face. This method allows you to load and preprocess the data easily.
-Example:
+
+Example usage:
 
 ```python
  # load and preprocess data
     raw_dataset, processed_dataset= load_and_preprocess_data(
-    "mozilla-foundation/common_voice_17_0",
-    language="eu",   # ISO 639-1 language code
+    "mozilla-foundation/common_voice_17_0",  # Dataset name on Hugging Face
+    language="eu",                           # ISO 639-1 language code
     use_huggingface=True, 
-    token="hf_token",
+    token="hf_token",                        # Your Hugging Face access token
     feature_extractor=feature_extractor, 
     tokenizer=tokenizer
 	)
@@ -70,7 +71,7 @@ your_dataset/
 ├── sample_002.txt  
 └── ... 
 ```
-You can then load and preprocess your data with the following command:
+To load and preprocess the data:
 
 ```python
 raw_dataset, processed_dataset = load_and_preprocess_data(path="data/")
@@ -83,7 +84,7 @@ raw_dataset, processed_dataset = load_and_preprocess_data(path="data/")
 To comply with Whisper's 30-second audio limit, make sure your audio files are segmented and aligned with the transcriptions. This alignment can be achieved using alignment tools such as [Wav2Vec2 Forced Alignment](https://pytorch.org/audio/stable/tutorials/forced_alignment_tutorial.html?utm_source=chatgpt.com) or [Montreal Forced Aligner (MFA)](https://mfa-models.readthedocs.io/en/latest/).
 
 ##### Transcript Normalization
-Transcriptions should be:
+During preprocessing, all transcriptions are automatically:
 
 * Fully lowercased
 * Stripped of all punctuation
