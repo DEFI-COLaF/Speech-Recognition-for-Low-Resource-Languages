@@ -74,7 +74,7 @@ your_dataset/
 To load and preprocess the data:
 
 ```python
-raw_dataset, processed_dataset = load_and_preprocess_data(path="data/")
+raw_dataset, processed_dataset = load_and_preprocess_data(path="your_dataset/"		)
 ```
 
 ##### Audio Requirements
@@ -106,13 +106,13 @@ We have focused on a selection of low-resource languages spoken in France, inclu
 * Alsatian
 * Shimaore
 
-The table below summarizes the results obtained after fine-tuning Whisper models on these languages. Key metrics include the size of the training data, duration of fine-tuning, and transcription performance:
+The table below summarizes the results obtained after fine-tuning Whisper models on these languages. Key metrics include the size of the training data, duration of fine-tuning, and transcription performance. The `Whisper Language Setting` column shows the language used in Whisper for each case.
 
-| Language | Base Model       | Training Data (hrs) | Training Duration | WER (%) | CER (%) |
-|----------|------------------|---------------------|-------------------|---------|---------|
-| Basque   | whisper-medium   | 116h20              | 13h08             |  8.7    |   1.6   |
-| Alsatian | whisper-large-v3 | 9h36                | 18min             | 47.2    |  26.1   |
-| Shimaore | whisper-large-v3 | 1h28                | 5min              | 69.2    |  29.1   |
+| Data language |Whisper Language Setting| Base Model       | Training Data (hrs) | Training Duration | WER (%) | CER (%) |
+|---------------|------------------------|------------------|---------------------|-------------------|---------|---------|
+| Basque        | Basque                 | whisper-medium   | 116h20              | 13h08             |  8.7    |   1.6   |
+| Alsatian      | German                 |whisper-large-v3  | 9h36                | 18min             | 47.2    |  26.1   |
+| Shimaore      | Swahili                | whisper-large-v3 | 1h28                | 5min              | 69.2    |  29.1   |
 
 Experiments were conducted using two Nvidia Tesla L40S GPUs, each with 45 GiB of memory. 
 
