@@ -74,7 +74,7 @@ your_dataset/
 To load and preprocess the data:
 
 ```python
-raw_dataset, processed_dataset = load_and_preprocess_data(path="your_dataset/"		)
+raw_dataset, processed_dataset = load_and_preprocess_data(path="your_dataset/")
 ```
 
 ##### Audio Requirements
